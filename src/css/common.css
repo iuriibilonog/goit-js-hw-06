@@ -39,3 +39,12 @@ li {
   margin-top: 50px;
   list-style: none;
 }
+
+#boxes {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.box-item:not(:last-child) {
+  margin-right: 20px;
+}
