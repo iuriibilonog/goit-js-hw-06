@@ -14,16 +14,28 @@ const images = [
 ];
 
 
+// const gallaryNode = document.querySelector('.gallery');
+
+// const createNode = images.map(item => {
+//   const liElement = document.createElement('li');
+//   const imgEl = document.createElement('img');
+//   imgEl.src = item.url;
+//   imgEl.alt = item.alt;
+//   liElement.appendChild(imgEl);
+//   return liElement;
+// })
+
+
+// gallaryNode.append(...createNode)
+
 const gallaryNode = document.querySelector('.gallery');
 
-const createNode = images.map(item => {
-  const liElement = document.createElement('li');
-  const imgEl = document.createElement('img');
-  imgEl.src = item.url;
-  imgEl.alt = item.alt;
-  liElement.appendChild(imgEl);
-  return liElement;
-})
+const makeItem = item => {
+  const { url, alt } = item;
+  return `<li><img src="${url}" alt="${alt}" width=100%></li>`;
+}
 
+const ItemWithImg = images.map(makeItem).join("");
 
-gallaryNode.append(...createNode)
+gallaryNode.insertAdjacentHTML("beforeend", ItemWithImg);
+
